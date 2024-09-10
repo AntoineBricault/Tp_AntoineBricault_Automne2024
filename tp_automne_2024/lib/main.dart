@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tp_automne_2024/tiroir_nav.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,6 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const TiroirNav(),
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
