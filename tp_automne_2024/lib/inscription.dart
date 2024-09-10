@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tp_automne_2024/main.dart';
 
 // TODO Un ecran minimal avec un tres peu de code
 class inscritpion extends StatefulWidget {
@@ -15,7 +16,47 @@ class _inscritpionState extends State<inscritpion> {
       appBar: AppBar(
         title: const Text('Inscritpion'),
       ),
-      body: const Text('Écran inscritpion'),
+      body: Center(
+        child: Column(
+          children: [
+
+            TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Nom d'utilisateur",
+              ),
+            ),
+
+            TextField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "Mot de passe"
+              ),
+            ),
+
+            TextField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "Confirmation du mot de passe"
+              ),
+            ),
+
+            OutlinedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MyHomePage(
+                        title: "Accueil",
+                      ),
+                    ),
+                  );
+                },
+                child: const Text("Inscription")),
+
+          ],
+        ),
+      ),
     );
   }
 }
