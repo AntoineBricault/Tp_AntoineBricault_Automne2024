@@ -22,12 +22,14 @@ class _creationState extends State<creation> {
 
             TextField(
               decoration: InputDecoration(
+                  border: OutlineInputBorder(),
                 hintText: "Nom de la tache"
               ),
             ),
 
             TextField(
               decoration: InputDecoration(
+                  border: OutlineInputBorder(),
                   hintText: "Date de la tache"
               ),
             ),
