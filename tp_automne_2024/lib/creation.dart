@@ -23,7 +23,7 @@ class _creationState extends State<creation> {
             TextField(
               decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                hintText: "Nom de la tache"
+                  hintText: "Nom de la tache"
               ),
             ),
 
@@ -39,7 +39,8 @@ class _creationState extends State<creation> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const MyHomePage(
+                      builder: (context) =>
+                      const MyHomePage(
                         title: "Accueil",
                       ),
                     ),

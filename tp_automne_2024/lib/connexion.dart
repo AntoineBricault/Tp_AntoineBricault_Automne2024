@@ -30,8 +30,8 @@ class _connexionState extends State<connexion> {
 
             TextField(
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "Mot de passe"
+                  border: OutlineInputBorder(),
+                  hintText: "Mot de passe"
               ),
             ),
 
@@ -40,7 +40,8 @@ class _connexionState extends State<connexion> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const MyHomePage(
+                      builder: (context) =>
+                      const MyHomePage(
                         title: "Accueil",
                       ),
                     ),
