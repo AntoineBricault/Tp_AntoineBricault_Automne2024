@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tp_automne_2024/main.dart';
 
-// TODO Un ecran minimal avec un tres peu de code
 class creation extends StatefulWidget {
   const creation({super.key});
 

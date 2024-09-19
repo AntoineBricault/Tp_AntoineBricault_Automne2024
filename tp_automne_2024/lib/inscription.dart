@@ -13,7 +13,20 @@ class inscritpion extends StatefulWidget {
 }
 
 class _inscritpionState extends State<inscritpion> {
-String reponse = "";
+
+  final textControllerNom = TextEditingController();
+  final textControllerMDP = TextEditingController();
+  final textControllerMDPConfirmer = TextEditingController();
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    textControllerNom.dispose();
+    textControllerMDP.dispose();
+    textControllerMDPConfirmer.dispose();
+    super.dispose();
+  }
+
+  String reponse = "";
 
   void postHttpInscription() async {
     try {
@@ -45,6 +58,8 @@ String reponse = "";
                 border: OutlineInputBorder(),
                 hintText: "Nom d'utilisateur",
               ),
+              groupId: "nomUtilisateur",
+              controller: textControllerNom,
             ),
 
             TextField(
@@ -52,6 +67,8 @@ String reponse = "";
                   border: OutlineInputBorder(),
                   hintText: "Mot de passe"
               ),
+              groupId: "motDePasse",
+              controller: textControllerMDP,
             ),
 
             TextField(
@@ -59,6 +76,8 @@ String reponse = "";
                   border: OutlineInputBorder(),
                   hintText: "Confirmation du mot de passe"
               ),
+              groupId: "confirmerMDP",
+              controller: textControllerMDPConfirmer,
             ),
 
             OutlinedButton(
@@ -66,8 +85,8 @@ String reponse = "";
 
                   try {
                     SignupRequest req = SignupRequest();
-                    req.username = 'test1';
-                    req.password = 'password';
+                    req.username = textControllerNom.text;
+                    req.password = textControllerMDP.text;
                     var reponse = await signup(req);
                     print(reponse);
                   } on DioException catch (e) {
@@ -79,7 +98,8 @@ String reponse = "";
                       print('autre erreurs');
                     }
                   }
-                  /*Navigator.push(
+                  dispose();
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) =>
@@ -87,7 +107,7 @@ String reponse = "";
                         title: "Accueil",
                       ),
                     ),
-                  );*/
+                  );
                 },
                 child: const Text("Inscription")),
 

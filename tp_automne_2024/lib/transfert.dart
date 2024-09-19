@@ -32,3 +32,7 @@ class SignupResponse {
 
   Map<String, dynamic> toJson() => _$SignupResponseToJson(this);
 }
+
+
+//commande a utiliser dans le terminal pour regénérer le code
+//flutter pub run build_runner build
