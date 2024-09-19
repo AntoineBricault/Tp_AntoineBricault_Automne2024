@@ -36,7 +36,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String reponse = "en attente";
 
-  void getHttp() async {
+  /*void getHttp() async {
     try {
       var response =
       await Dio().get('http://10.0.2.2:8080/test');
@@ -48,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text('Erreur reseau')));
     }
-  }
+  }*/
 
 
 

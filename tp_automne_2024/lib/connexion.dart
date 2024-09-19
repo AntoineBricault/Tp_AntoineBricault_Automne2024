@@ -15,6 +15,17 @@ class connexion extends StatefulWidget {
 }
 
 class _connexionState extends State<connexion> {
+
+  final textControllerNom = TextEditingController();
+  final textControllerMDP = TextEditingController();
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    textControllerNom.dispose();
+    textControllerMDP.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +41,7 @@ class _connexionState extends State<connexion> {
                 border: OutlineInputBorder(),
                 hintText: "Nom d'utilisateur",
               ),
+              controller: textControllerNom,
             ),
 
             TextField(
@@ -37,6 +49,7 @@ class _connexionState extends State<connexion> {
                   border: OutlineInputBorder(),
                   hintText: "Mot de passe"
               ),
+              controller: textControllerMDP,
             ),
 
             OutlinedButton(
@@ -44,8 +57,8 @@ class _connexionState extends State<connexion> {
 
                   try {
                     SigninRequest req = SigninRequest();
-                    req.username = "Antoine";
-                    req.password = "passw0rd";
+                    req.username = textControllerNom.text;
+                    req.password = textControllerMDP.text;
                     var reponse = await signin(req);
                     print(reponse);
                   } on DioException catch (e) {
