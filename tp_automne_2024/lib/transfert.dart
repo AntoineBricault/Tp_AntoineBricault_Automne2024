@@ -33,6 +33,30 @@ class SignupResponse {
   Map<String, dynamic> toJson() => _$SignupResponseToJson(this);
 }
 
+@JsonSerializable()
+class SigninRequest {
+  SigninRequest();
+
+  String username = '';
+  String password = '';
+
+  factory SigninRequest.fromJson(Map<String, dynamic> json) =>
+      _$SigninRequestFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SigninRequestToJson(this);
+}
+
+@JsonSerializable()
+class SigninResponse {
+  SigninResponse();
+
+  String username = '';
+
+  factory SigninResponse.fromJson(Map<String, dynamic> json) =>
+      _$SigninResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SigninResponseToJson(this);
+}
 
 //commande a utiliser dans le terminal pour regénérer le code
 //flutter pub run build_runner build

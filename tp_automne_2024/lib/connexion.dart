@@ -1,6 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:tp_automne_2024/inscription.dart';
 import 'package:tp_automne_2024/main.dart';
+import 'package:tp_automne_2024/transfert.dart';
+
+import 'lib_http.dart';
 
 // TODO Un ecran minimal avec un tres peu de code
 class connexion extends StatefulWidget {
@@ -36,7 +40,27 @@ class _connexionState extends State<connexion> {
             ),
 
             OutlinedButton(
-                onPressed: () {
+                onPressed: () async {
+
+                  try {
+                    SigninRequest req = SigninRequest();
+                    req.username = "Antoine";
+                    req.password = "passw0rd";
+                    var reponse = await signin(req);
+                    print(reponse);
+                  } on DioException catch (e) {
+                    print(e);
+                    String message = e.response!.data;
+                    if (message == "BadCredentialsException") {
+                      print('login deja utilise');
+                    } else {
+                      print('autre erreurs');
+                    }
+
+                  }
+
+
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(

@@ -28,19 +28,6 @@ class _inscritpionState extends State<inscritpion> {
 
   String reponse = "";
 
-  void postHttpInscription() async {
-    try {
-      var response =
-      await Dio().get('https://kickmyb-server.herokuapp.com/test');
-      print(response);
-      reponse = response.data;
-      setState(() {});
-    } catch (e) {
-      print(e);
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text('Erreur reseau')));
-    }
-  }
 
 
   @override

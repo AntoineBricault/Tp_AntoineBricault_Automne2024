@@ -27,3 +27,16 @@ Future<SignupResponse> signup(SignupRequest req) async {
     rethrow;
   }
 }
+
+
+Future<SigninResponse> signin(SigninRequest req) async {
+  try {
+    var response = await SingletonDio.getDio()
+        .post('http://10.0.2.2:8080/api/id/signin', data: req.toJson());
+    print(response);
+    return SigninResponse.fromJson(response.data);
+  } catch (e) {
+    print(e);
+    rethrow;
+  }
+}
