@@ -40,3 +40,14 @@ Future<SigninResponse> signin(SigninRequest req) async {
     rethrow;
   }
 }
+
+Future addTask(AddTaskRequest req) async {
+  try {
+    var response = await SingletonDio.getDio()
+        .post('http://10.0.2.2:8080/api/add', data: req.toJson());
+    print(response);
+  } catch (e) {
+    print(e);
+    rethrow;
+  }
+}
